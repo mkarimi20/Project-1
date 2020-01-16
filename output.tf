@@ -11,7 +11,7 @@ output "key_name" {
     value = aws_key_pair.mkarimi.key_name
 }
 
-output "*_username" {
+output "mkarimi_username" {
     value = "some_username"
 }
 
