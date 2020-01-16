@@ -1,10 +1,10 @@
-resource "aws_instance" "web" {
+resource "aws_instance" "prod-instance" {
   count = var.count_instance
   ami             = var.ami
   instance_type   = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
-  key_name = aws_key_pair.deployer.key_name
-  security_groups = ["allow_ssh"]
+  key_name = aws_key_pair.mkarimi.key_name
+  security_groups = ["bastion-allow"]
   provisioner "remote-exec" {
     connection {
       host = self.public_ip
@@ -26,6 +26,6 @@ resource "aws_instance" "web" {
     prevent_destroy = false
   }
   tags = {
-    Name = "HelloWorld${count.index +1}"
+    Name = "prod${count.index +1}"
   }
 }
