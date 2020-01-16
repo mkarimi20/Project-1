@@ -14,12 +14,12 @@ resource "aws_instance" "prod" {
       }
       inline = [
         "sudo yum install -y epel-release",
-        #"sudo yum install httpd -y ",
-        #"sudo systemctl start httpd",
-        #"sudo systemctl enable httpd",
-        #]
+        "sudo yum install httpd -y ",
+        "sudo systemctl start httpd",
+        "sudo systemctl enable httpd",
+        ]
       }
-  provisioner "local-exec" {
+      provisioner "local-exec" {
     command = "echo Hello >> /tmp/file_hello"
   }
   lifecycle{
