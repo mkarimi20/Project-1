@@ -1,6 +1,6 @@
 resource "aws_instance" "prod" {
   count = var.count_instance
-  ami             = var.ami
+  ami             = "${data.aws_ami.centos.image_id}"
   instance_type   = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
   key_name = var.key_name
@@ -27,5 +27,30 @@ resource "aws_instance" "prod" {
   }
   tags = {
     Name = "prod${count.index +1}"
+  }
+}
+
+data "aws_ami" "centos" {
+  most_recent = true
+  owners      = ["aws-marketplace"]
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
+  filter {
+    name   = "image-type"
+    values = ["machine"]
+  }
+
+  filter {
+    name   = "name"
+    values = ["CentOS Linux 7*"]
   }
 }

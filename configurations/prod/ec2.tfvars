@@ -1,4 +1,4 @@
-ami                          = "ami-6e28b517" 
+#ami                          = "ami-6e28b517" 
  instance_type               = "t2.micro"
  count_instance              = 1
  associate_public_ip_address = "true"
