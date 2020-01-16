@@ -1,6 +1,6 @@
-ami                          = "ami-00068cd7555f543d5" 
+ami                          = "ami-6e28b517" 
  instance_type               = "t2.micro"
  count_instance              = 1
  associate_public_ip_address = "true"
- user                        = "ec2-user"
+ user                        = "centos"
  ssh_key_location            = "~/.ssh/id_rsa"
