@@ -3,7 +3,7 @@ resource "aws_instance" "prod" {
   ami             = var.ami
   instance_type   = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
-  key_name = aws_key_pair.mkarimi.key_name
+  key_name = var.key_name
   security_groups = ["bastion-allow"]
   provisioner "remote-exec" {
     connection {
