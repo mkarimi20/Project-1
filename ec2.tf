@@ -14,6 +14,7 @@ resource "aws_instance" "prod" {
       }
       inline = [
         "sudo yum install epel-release -y",
+        "sudo yum install r1soft -y",
         ]
       }
 
