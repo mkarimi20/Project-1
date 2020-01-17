@@ -1,5 +1,5 @@
-resource "aws_security_group" "bastion" { 
-  name        = "bastion" 
+resource "aws_security_group" "bastionhost" { 
+  name        = "bastionhost" 
   description = "Allow TLS inbound traffic" 
   vpc_id      = "vpc-908caaf6" 
 

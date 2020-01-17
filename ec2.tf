@@ -4,7 +4,7 @@ resource "aws_instance" "prod" {
   instance_type   = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
   key_name = var.key_name
-  security_groups = "bastion"
+  security_groups = var.security_group
   provisioner "remote-exec" {
     connection {
       host = self.public_ip
