@@ -6,3 +6,4 @@
  #ssh_key_location            = "~/.ssh/id_rsa"
  #key_name                    = "terraform"
 #security_group              = "bastionhost"
+region                       = "eu-west-1"
