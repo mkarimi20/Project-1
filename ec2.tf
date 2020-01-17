@@ -19,9 +19,6 @@ resource "aws_instance" "prod" {
         "sudo systemctl enable httpd",
         ]
       }
-      provisioner "local-exec" {
-    command = "echo Hello >> /tmp/file_hello"
-  }
   lifecycle{
     prevent_destroy = false
   }
