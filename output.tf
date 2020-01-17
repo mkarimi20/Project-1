@@ -14,5 +14,5 @@ value = aws_key_pair.terraform.key_name
 }
 
 output "IPs3" {
-  value = aws_instance.web.*.public_ip
+  value = aws_instance.prod.*.public_ip
 }
