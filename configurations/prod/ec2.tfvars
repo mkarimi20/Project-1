@@ -5,4 +5,4 @@
  user                        = "centos"
  ssh_key_location            = "~/.ssh/id_rsa"
  key_name                    = "terraform"
- security_group              = "bastionhost"
+#security_group              = "bastionhost"
