@@ -4,5 +4,5 @@
  associate_public_ip_address = "true"
  user                        = "centos"
  ssh_key_location            = "~/.ssh/id_rsa"
- key_name                    = "terraform"
+ #key_name                    = "terraform"
 #security_group              = "bastionhost"
