@@ -5,35 +5,22 @@ resource "aws_instance" "prod" {
   associate_public_ip_address = var.associate_public_ip_address
   key_name = aws_key_pair.terraform.key_name
   security_groups = ["bastionhost"]
+   provisioner "remote-exec" {
+    connection {
+      host        = self.public_ip
+      type        = "ssh"
+      user        = var.user
+      private_key = file(var.ssh_key_location)
+      }
+      inline = [
+        "sudo yum install epel-release -y",
+        ]
+      }
 
     lifecycle{
     prevent_destroy = false
   }
   tags = {
     Name = "prod${count.index +1}"
-  }
-}
-data "aws_ami" "centos" {
-  most_recent = true
-  owners      = ["aws-marketplace"]
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  filter {
-    name   = "architecture"
-    values = ["x86_64"]
-  }
-
-  filter {
-    name   = "image-type"
-    values = ["machine"]
-  }
-
-  filter {
-    name   = "name"
-    values = ["CentOS Linux 7*"]
   }
 }
