@@ -1,7 +1,7 @@
 resource "aws_instance" "prod" {
   count = var.count_instance
   ami = ami-0d20c23f760937ee7
-  instance_type   = var.instance_type
+  instance_type = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
   key_name = aws_key_pair.terraform.key_name
   security_groups = ["bastionhost"]
