@@ -1,6 +1,6 @@
 resource "aws_instance" "prod" {
   count = var.count_instance
-  ami             = "${data.aws_ami.centos.image_id}"
+  ami             = ami-0d20c23f760937ee7 #"${data.aws_ami.centos.image_id}"
   instance_type   = var.instance_type
   associate_public_ip_address = var.associate_public_ip_address
   key_name = aws_key_pair.terraform.key_name
